@@ -565,7 +565,7 @@ nav::-webkit-scrollbar { display: none; }
   .modal-hero-img { height: 200px; }
 }
 
-
+ .x-widget-wrap {
   border: 1px solid var(--border);
   border-radius: 5px;
   overflow: hidden;
@@ -574,6 +574,12 @@ nav::-webkit-scrollbar { display: none; }
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
 }
+
+.x-widget-wrap iframe {
+  width: 100% !important;
+  border: none !important;
+}
+
 .x-widget-wrap iframe {
   width: 100% !important;
   border: none !important;
