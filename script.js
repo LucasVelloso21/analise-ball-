@@ -169,7 +169,11 @@ function closePost() {
 // Attach click to all cards
 document.querySelectorAll('.post-card, .post-featured').forEach(card => {
   card.style.cursor = 'pointer';
-  card.addEventListener('click', () => openPost(card));
+  card.addEventListener('click', (e) => {
+    // Don't open modal if click came from a link or button inside the card
+    if (e.target.closest('a, button')) return;
+    openPost(card);
+  });
 });
 
 modalOverlay.addEventListener('click', closePost);
@@ -188,6 +192,7 @@ const allCards = document.querySelectorAll('.post-card, .post-featured');
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
     navLinks.forEach(l => l.classList.remove('active'));
     link.classList.add('active');
     const cat = link.dataset.cat;
