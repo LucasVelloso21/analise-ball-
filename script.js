@@ -125,6 +125,12 @@ navLinks.forEach(function(link) {
       card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
     });
     nav.classList.remove('open');
+
+    // Scroll suave até a seção de posts
+    var postsSection = document.querySelector('.posts-section');
+    if (postsSection) {
+      postsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 });
 
