@@ -2,7 +2,7 @@
 // ── ANÁLISE BALL — Script Principal ──
 // ══════════════════════════════════════════════════
 
-// ── Post data ──
+// ── Post data (atualize via admin.html) ──
 var posts = [
   {
     title: "Oitavas da Champions hoje: Liverpool, Barcelona, City e Bayern entram em campo",
@@ -48,7 +48,76 @@ var posts = [
   }
 ];
 
+// ══════════════════════════════════════════
+// ── SIDEBAR DINÂMICA: Threads + Ranking ──
+// ══════════════════════════════════════════
+
+function renderThreadsSidebar() {
+  var threadsList = document.getElementById('threads-list');
+  if (!threadsList) return;
+
+  // Filtra posts com cat "thread"
+  var threads = posts.filter(function(p) { return p.cat === 'thread'; });
+
+  if (threads.length === 0) {
+    threadsList.innerHTML = '<p style="font-size:12px;color:#9a9a94;">Nenhuma thread publicada ainda.</p>';
+    return;
+  }
+
+  threadsList.innerHTML = threads.map(function(t, i) {
+    var num = String(i + 1).padStart(2, '0');
+    return '<div class="thread-card" data-cat="thread" data-thread-title="' + t.title.replace(/"/g, '&quot;') + '">' +
+      '<span class="thread-num">' + num + '</span>' +
+      '<div class="thread-label">Thread · ' + t.readTime + '</div>' +
+      '<div class="thread-title">' + t.title + '</div>' +
+    '</div>';
+  }).join('');
+
+  // Clique abre o modal
+  threadsList.querySelectorAll('.thread-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var title = card.dataset.threadTitle;
+      var post = posts.find(function(p) { return p.title === title; });
+      if (post) openPostFromData(post);
+    });
+  });
+}
+
+function renderRankingSidebar() {
+  var rankingList = document.getElementById('ranking-list');
+  if (!rankingList) return;
+
+  // Mostra os 5 primeiros posts como "mais lidos"
+  var top = posts.slice(0, 5);
+
+  rankingList.innerHTML = top.map(function(p, i) {
+    return '<div class="ranking-item" data-rank-title="' + p.title.replace(/"/g, '&quot;') + '">' +
+      '<span class="rank-num">' + (i + 1) + '</span>' +
+      '<div>' +
+        '<div class="rank-title">' + truncateText(p.title, 50) + '</div>' +
+        '<div class="rank-cat">' + (p.catLabel || p.cat) + '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  // Clique abre o modal
+  rankingList.querySelectorAll('.ranking-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var title = item.dataset.rankTitle;
+      var post = posts.find(function(p) { return p.title === title; });
+      if (post) openPostFromData(post);
+    });
+  });
+}
+
+function truncateText(str, len) {
+  return str.length > len ? str.substring(0, len) + '...' : str;
+}
+
+// ══════════════════════════════
 // ── Modal logic ──
+// ══════════════════════════════
+
 var modal = document.getElementById('post-modal');
 var modalOverlay = document.getElementById('modal-overlay');
 var modalClose = document.getElementById('modal-close');
@@ -63,31 +132,32 @@ function getImgSrc(card) {
   return img ? img.src : null;
 }
 
+// Abre modal a partir de um card HTML
 function openPost(card) {
   var title = (card.querySelector('.card-title, .post-featured-title') || {}).textContent || '';
-  var catEl = card.querySelector('.post-cat');
-  var catLabel = catEl ? catEl.textContent.trim() : '';
-  var catClass = catEl ? catEl.className.replace('post-cat', '').trim() : '';
-  var footerSpans = card.querySelectorAll('.post-footer span');
-  var date = footerSpans[0] ? footerSpans[0].textContent : '';
-  var readTime = footerSpans[2] ? footerSpans[2].textContent : '';
-  var imgSrc = getImgSrc(card);
   var post = posts.find(function(p) { return p.title === title.trim(); });
+  if (post) {
+    openPostFromData(post, getImgSrc(card));
+  }
+}
 
-  modalCat.textContent = catLabel;
+// Abre modal a partir de dados do post
+function openPostFromData(post, imgSrc) {
+  var catClass = post.cat || '';
+  modalCat.textContent = post.catLabel || post.cat;
   modalCat.className = 'post-cat ' + catClass;
-  modalTitle.textContent = title.trim();
-  modalMeta.innerHTML = '<span>Análise Ball</span><span class="dot">\u00b7</span><span>' + date + '</span><span class="dot">\u00b7</span><span>' + readTime + '</span>';
+  modalTitle.textContent = post.title;
+  modalMeta.innerHTML = '<span>Análise Ball</span><span class="dot">\u00b7</span><span>' + post.date + '</span><span class="dot">\u00b7</span><span>' + post.readTime + '</span>';
 
   if (imgSrc) {
-    modalImg.innerHTML = '<img src="' + imgSrc + '" alt="' + title.trim() + '"/>';
+    modalImg.innerHTML = '<img src="' + imgSrc + '" alt="' + post.title + '"/>';
     modalImg.classList.remove('no-img');
   } else {
     modalImg.innerHTML = '';
     modalImg.classList.add('no-img');
   }
 
-  modalText.innerHTML = post ? post.text : '<p>Conteúdo completo em breve.</p>';
+  modalText.innerHTML = post.text || '<p>Conteúdo completo em breve.</p>';
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -151,7 +221,7 @@ loadBtn.addEventListener('click', function() {
 
 
 // ══════════════════════════════════════════════════════════════
-// ── INTEGRAÇÃO 2: RSS FEED DO X (via rss.app)             ──
+// ── INTEGRAÇÃO: RSS FEED DO X (via rss.app)                ──
 // ══════════════════════════════════════════════════════════════
 
 var RSS_FEED_URL = 'https://rss.app/feeds/v1.1/9QoEF0bvtjASd99D.json';
@@ -160,10 +230,8 @@ var AVATAR_URL = 'https://pbs.twimg.com/profile_images/1895267817038684160/jxB7R
 var X_PROFILE = 'https://x.com/analiseball';
 var MAX_TWEETS = 4;
 
-// SVG do logo do X
 var X_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="rss-tweet-x-logo"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
 
-// Formata data relativa
 function timeAgo(dateStr) {
   var now = new Date();
   var date = new Date(dateStr);
@@ -171,7 +239,6 @@ function timeAgo(dateStr) {
   var diffMin = Math.floor(diffMs / 60000);
   var diffH = Math.floor(diffMin / 60);
   var diffD = Math.floor(diffH / 24);
-
   if (diffMin < 1) return 'agora';
   if (diffMin < 60) return diffMin + 'min';
   if (diffH < 24) return diffH + 'h';
@@ -179,7 +246,6 @@ function timeAgo(dateStr) {
   return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' });
 }
 
-// Cria HTML de um tweet card
 function createTweetCard(tweet) {
   var card = document.createElement('a');
   card.className = 'rss-tweet-card';
@@ -196,7 +262,7 @@ function createTweetCard(tweet) {
     '<div class="rss-tweet-header">' +
       '<img class="rss-tweet-avatar" src="' + AVATAR_URL + '" alt="Avatar" />' +
       '<div class="rss-tweet-author">' +
-        '<span class="rss-tweet-name">An\u00e1lise Ball</span>' +
+        '<span class="rss-tweet-name">Análise Ball</span>' +
         '<span class="rss-tweet-handle">@AnaliseBall</span>' +
       '</div>' +
       X_SVG +
@@ -210,7 +276,6 @@ function createTweetCard(tweet) {
   return card;
 }
 
-// Renderiza tweets no grid
 function renderTweets(tweets) {
   var grid = document.getElementById('rss-tweets-grid');
   var loading = document.getElementById('rss-loading');
@@ -219,8 +284,8 @@ function renderTweets(tweets) {
   if (!tweets || tweets.length === 0) {
     grid.innerHTML =
       '<div class="rss-empty">' +
-        '<p>Nenhum tweet dispon\u00edvel no momento.</p>' +
-        '<p>Siga <a href="' + X_PROFILE + '" target="_blank">@AnaliseBall no X</a> para ver o conte\u00fado em tempo real.</p>' +
+        '<p>Nenhum tweet disponível no momento.</p>' +
+        '<p>Siga <a href="' + X_PROFILE + '" target="_blank">@AnaliseBall no X</a> para ver o conteúdo em tempo real.</p>' +
       '</div>';
     return;
   }
@@ -230,65 +295,49 @@ function renderTweets(tweets) {
   });
 }
 
-// Tweets de exemplo (fallback caso o feed falhe)
 function getExampleTweets() {
   return [
     {
-      text: "\ud83c\udfc6 Oitavas da Champions HOJE! Liverpool, Barcelona, City e Bayern em campo. Quem avan\u00e7a? Minha an\u00e1lise completa no site \ud83d\udc47",
+      text: "\ud83c\udfc6 Oitavas da Champions HOJE! Liverpool, Barcelona, City e Bayern em campo. Quem avança? Minha análise completa no site \ud83d\udc47",
       date: new Date(Date.now() - 2 * 3600000).toISOString(),
-      link: X_PROFILE,
-      image: null
+      link: X_PROFILE, image: null
     },
     {
-      text: "\ud83c\udfc0 SGA \u00e9 INEVIT\u00c1VEL. 35 pts, 15 ast, game-winner no buzzer. Igualou Wilt Chamberlain \u2014 126 jogos seguidos com 20+ pontos. O Thunder \u00e9 REAL.",
+      text: "\ud83c\udfc0 SGA é INEVITÁVEL. 35 pts, 15 ast, game-winner no buzzer. Igualou Wilt Chamberlain — 126 jogos seguidos com 20+ pontos.",
       date: new Date(Date.now() - 5 * 3600000).toISOString(),
-      link: X_PROFILE,
-      image: null
+      link: X_PROFILE, image: null
     },
     {
-      text: "\ud83e\uddf5 THREAD: A hist\u00f3ria completa de como o Barcelona quebrou financeiramente. De Neymar a Bartomeu, dos sal\u00e1rios absurdos \u00e0s alavancas. 1/20 \u2935\ufe0f",
+      text: "\ud83e\uddf5 THREAD: A história completa de como o Barcelona quebrou financeiramente. De Neymar a Bartomeu. 1/20 \u2935\ufe0f",
       date: new Date(Date.now() - 24 * 3600000).toISOString(),
-      link: X_PROFILE,
-      image: null
+      link: X_PROFILE, image: null
     },
     {
-      text: "\ud83c\udfce\ufe0f F1 2026 come\u00e7a DOMINGO! Novos regulamentos, nova era. Mercedes e Red Bull favoritas mas Ferrari e McLaren podem surpreender.",
+      text: "\ud83c\udfce\ufe0f F1 2026 começa DOMINGO! Novos regulamentos, nova era. Mercedes e Red Bull favoritas mas Ferrari pode surpreender.",
       date: new Date(Date.now() - 48 * 3600000).toISOString(),
-      link: X_PROFILE,
-      image: null
+      link: X_PROFILE, image: null
     }
   ];
 }
 
-// Busca o feed RSS real
 function fetchRSSFeed() {
   fetch(RSS_FEED_URL)
     .then(function(response) {
-      if (!response.ok) throw new Error('Falha ao carregar feed');
+      if (!response.ok) throw new Error('Feed falhou');
       return response.json();
     })
     .then(function(data) {
-      // JSON Feed spec: items em data.items
       var items = data.items || data.entries || [];
-
-      if (items.length === 0) {
-        renderTweets(getExampleTweets());
-        return;
-      }
+      if (items.length === 0) { renderTweets(getExampleTweets()); return; }
 
       var tweets = items.map(function(item) {
-        // Extrai imagem se existir
         var image = null;
-        if (item.image) {
-          image = item.image;
-        } else if (item.attachments && item.attachments.length > 0) {
+        if (item.image) image = item.image;
+        else if (item.attachments && item.attachments.length > 0) {
           var att = item.attachments[0];
-          if (att.mime_type && att.mime_type.indexOf('image') !== -1) {
-            image = att.url;
-          }
+          if (att.mime_type && att.mime_type.indexOf('image') !== -1) image = att.url;
         }
 
-        // Limpa texto HTML para texto puro
         var rawText = item.content_text || item.title || item.summary || item.description || '';
         var tempDiv = document.createElement('div');
         tempDiv.innerHTML = rawText;
@@ -296,8 +345,8 @@ function fetchRSSFeed() {
 
         return {
           text: cleanText.trim(),
-          date: item.date_published || item.date_modified || item.pubDate || new Date().toISOString(),
-          link: item.url || item.external_url || item.link || X_PROFILE,
+          date: item.date_published || item.date_modified || new Date().toISOString(),
+          link: item.url || item.external_url || X_PROFILE,
           image: image
         };
       });
@@ -305,10 +354,15 @@ function fetchRSSFeed() {
       renderTweets(tweets);
     })
     .catch(function(err) {
-      console.warn('RSS Feed indisponivel, usando tweets de exemplo:', err);
+      console.warn('RSS Feed indisponível, usando exemplos:', err);
       renderTweets(getExampleTweets());
     });
 }
 
-// Inicializa o feed
+// ══════════════════════════════
+// ── INICIALIZAÇÃO ──
+// ══════════════════════════════
+
+renderThreadsSidebar();
+renderRankingSidebar();
 fetchRSSFeed();
