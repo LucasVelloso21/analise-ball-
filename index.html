@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Análise Ball – Esportes, Análises e Opinião</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -25,7 +26,7 @@
   <header>
     <div class="header-inner">
       <a class="logo-wrap" href="#">
-        <img class="logo-img" src="https://pbs.twimg.com/profile_images/1895267817038684160/jxB7R0mn_400x400.jpg" alt="Logo" />
+        <img class="logo-img" src="logo.jpg" alt="Análise Ball" />
         <div class="logo-text">ANÁLISE BALL<span>Esportes &amp; Opinião</span></div>
       </a>
       <nav id="main-nav">
@@ -41,36 +42,30 @@
   <!-- BANNER -->
   <section class="banner-section">
     <div class="banner-img-wrap">
-      <img class="banner-img" src="https://pbs.twimg.com/profile_banners/1895267128476594176/1740606498/1500x500" alt="Banner" />
-    </div>
-    <div class="banner-profile-bar">
-      <div class="banner-profile">
-        <img class="banner-avatar" src="https://pbs.twimg.com/profile_images/1895267817038684160/jxB7R0mn_400x400.jpg" alt="Avatar" />
-        <div class="banner-info">
-          <div class="banner-name">ANÁLISE BALL</div>
-          <div class="banner-handle">@AnaliseBall · Fique por dentro de tudo no mundo do futebol</div>
-        </div>
-      </div>
+      <img class="banner-img" src="banner.jpg" alt="Banner Análise Ball" />
     </div>
   </section>
 
   <!-- CONTENT -->
   <div class="content-wrap">
     <main class="posts-section">
-      <div class="section-label">Últimas publicações</div>
 
-      <!-- FEATURED -->
-      <div class="post-featured" data-cat="futebol">
-        <div>
+      <!-- HEADLINE — estilo manchete de jornal -->
+      <div class="section-label">Manchete</div>
+      <div class="headline-card" data-cat="futebol">
+        <div class="headline-img">
+          <img src="https://pbs.twimg.com/media/HDkT11zWsAAB83B.jpg" alt="Man United" />
+        </div>
+        <div class="headline-body">
           <span class="post-cat futebol">Premier League</span>
-          <h2 class="post-featured-title">Manchester United vence bem o Aston Villa com Casemiro decisivo</h2>
+          <h2 class="headline-title">Manchester United vence bem o Aston Villa com Casemiro decisivo</h2>
+          <p class="headline-excerpt">Casemiro se mostra pilar do time. Bruno Fernandes brilha novamente e Matheus Cunha marca gol decisivo em grande atuação.</p>
           <div class="post-footer"><span>16 Mar 2026</span><span class="dot">·</span><span>4 min de leitura</span></div>
         </div>
-        <div class="post-featured-thumb"><img src="https://pbs.twimg.com/media/HDkT11zWsAAB83B.jpg" alt="Man United" /></div>
       </div>
 
       <!-- RSS TWEETS -->
-      <div class="section-label" style="margin-top:8px;">
+      <div class="section-label" style="margin-top:32px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px;margin-right:6px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         Últimos tweets — @AnaliseBall
       </div>
@@ -81,82 +76,10 @@
         </div>
       </div>
 
-      <!-- GRID POSTS -->
+      <!-- MATÉRIAS — formato jornal: imagem esquerda, texto direita -->
       <div class="section-label" style="margin-top:32px;">Análises &amp; Matérias</div>
-      <div class="posts-grid">
-
-        <div class="post-card" data-cat="futebol">
-          <div class="card-thumb"><img src="https://pbs.twimg.com/media/HDkUMhLXYAA9Aro.jpg" alt="Liverpool" /></div>
-          <div class="card-body">
-            <span class="post-cat futebol">Premier League</span>
-            <h3 class="card-title">Liverpool decepciona novamente e Arne Slot mostra fragilidade</h3>
-            <div class="post-footer"><span>16 Mar 2026</span><span class="dot">·</span><span>3 min de leitura</span></div>
-          </div>
-        </div>
-
-        <div class="post-card" data-cat="futebol">
-          <div class="card-thumb"><img src="https://pbs.twimg.com/media/HDkUkn5XgAElyur.jpg" alt="Como" /></div>
-          <div class="card-body">
-            <span class="post-cat futebol">Serie A</span>
-            <h3 class="card-title">O trabalho de Cesc Fàbregas no Como: verticalidade e associação</h3>
-            <div class="post-footer"><span>16 Mar 2026</span><span class="dot">·</span><span>3 min de leitura</span></div>
-          </div>
-        </div>
-
-        <div class="post-card" data-cat="futebol">
-          <div class="card-thumb"><img src="https://pbs.twimg.com/media/HDbt7QkWMAA5j2K.jpg" alt="Bayern" /></div>
-          <div class="card-body">
-            <span class="post-cat futebol">Bundesliga</span>
-            <h3 class="card-title">Bayern de Munique empata com Bayer Leverkusen em jogo com 2 expulsões</h3>
-            <div class="post-footer"><span>15 Mar 2026</span><span class="dot">·</span><span>4 min de leitura</span></div>
-          </div>
-        </div>
-
-        <div class="post-card" data-cat="f1">
-          <div class="card-thumb"><img src="https://pbs.twimg.com/media/HDcGOodXAAAfA4N.jpg" alt="F1 China" /></div>
-          <div class="card-body">
-            <span class="post-cat f1">F1</span>
-            <h3 class="card-title">GP da China 2026: Mercedes domina e top 3 é todo da equipe</h3>
-            <div class="post-footer"><span>15 Mar 2026</span><span class="dot">·</span><span>3 min de leitura</span></div>
-          </div>
-        </div>
-
-        <div class="post-card" data-cat="f1">
-          <div class="card-thumb"><img src="https://pbs.twimg.com/media/HDcH2RSWAAAU9oO.jpg" alt="Mercedes F1" /></div>
-          <div class="card-body">
-            <span class="post-cat f1">F1</span>
-            <h3 class="card-title">Mercedes avassaladora: começo de temporada sem rivais na F1 2026</h3>
-            <div class="post-footer"><span>15 Mar 2026</span><span class="dot">·</span><span>3 min de leitura</span></div>
-          </div>
-        </div>
-
-        <div class="post-card" data-cat="futebol">
-          <div class="card-thumb"><img src="https://pbs.twimg.com/ext_tw_video_thumb/2026005743900454912/pu/img/HNnrXe7sHbZU7jEd.jpg" alt="Lance" /></div>
-          <div class="card-body">
-            <span class="post-cat futebol">Futebol</span>
-            <h3 class="card-title">Simplesmente não dá pra acreditar nesse lance</h3>
-            <div class="post-footer"><span>17 Mar 2026</span><span class="dot">·</span><span>1 min de leitura</span></div>
-          </div>
-        </div>
-
-        <div class="post-card" data-cat="basquete">
-          <div class="card-thumb"><img src="https://pbs.twimg.com/media/HDgMlOgXYAAMhjx.jpg" alt="Gui Santos" /></div>
-          <div class="card-body">
-            <span class="post-cat basquete">NBA</span>
-            <h3 class="card-title">Gui Santos: símbolo de resistência do esporte brasileiro</h3>
-            <div class="post-footer"><span>12 Mar 2026</span><span class="dot">·</span><span>2 min de leitura</span></div>
-          </div>
-        </div>
-
-        <div class="post-card" data-cat="futebol">
-          <div class="card-thumb"><img src="https://pbs.twimg.com/amplify_video_thumb/2032223439054893057/img/fX3A1zyzCls6qt-8.jpg" alt="Copa do Brasil" /></div>
-          <div class="card-body">
-            <span class="post-cat futebol">Copa do Brasil</span>
-            <h3 class="card-title">Volta Redonda classificado na Copa do Brasil nos pênaltis</h3>
-            <div class="post-footer"><span>12 Mar 2026</span><span class="dot">·</span><span>2 min de leitura</span></div>
-          </div>
-        </div>
-
+      <div class="news-list" id="news-list">
+        <!-- Gerado via JS -->
       </div>
 
       <div class="load-more-wrap">
@@ -185,7 +108,7 @@
         <div id="ranking-list"></div>
       </div>
       <div class="sobre-box">
-        <img class="sobre-avatar" src="https://pbs.twimg.com/profile_images/1895267817038684160/jxB7R0mn_400x400.jpg" alt="Avatar" />
+        <img class="sobre-avatar" src="logo.jpg" alt="Logo" />
         <div class="sobre-name">ANÁLISE BALL</div>
         <p class="sobre-text">Fique por dentro de tudo o que acontece no mundo do futebol! Análises das principais ligas europeias e F1.</p>
         <div class="social-links">
@@ -215,7 +138,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <img class="footer-logo" src="https://pbs.twimg.com/profile_images/1895267817038684160/jxB7R0mn_400x400.jpg" alt="Logo" />
+          <img class="footer-logo" src="logo.jpg" alt="Logo" />
           <div class="footer-brand-name">ANÁLISE BALL</div>
           <p>Análises esportivas direto do X. Premier League, Serie A, Bundesliga, F1 e mais.</p>
         </div>
