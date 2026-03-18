@@ -2,145 +2,131 @@
 // ── ANÁLISE BALL — Script Principal ──
 // ══════════════════════════════════════════════════
 
-// ── Post data (atualize via admin.html) ──
+// ── Posts reais baseados no conteúdo do @AnaliseBall ──
 var posts = [
   {
-    title: "Oitavas da Champions hoje: Liverpool, Barcelona, City e Bayern entram em campo",
-    cat: "futebol", catLabel: "Champions League",
-    date: "18 Mar 2026", readTime: "5 min de leitura",
-    text: "<p>Começa hoje a fase de mata-mata da Champions League 2025/26! Quatro jogos de ida das oitavas de final prometem emoção.</p><p><strong>Galatasaray x Liverpool</strong> (14h45) — Os turcos recebem os ingleses em Istambul. Liverpool favorito mas o ambiente no Ali Sami Yen é infernal.</p><p><strong>Newcastle x Barcelona</strong> (17h) — Um dos jogos mais aguardados. Lewandowski x Isak no duelo de centroavantes. St. James' Park vai ferver.</p><p><strong>Atlético de Madrid x Tottenham</strong> (17h) — Simeone quer abrir vantagem em casa com sua defesa sólida.</p><p><strong>Atalanta x Bayern de Munique</strong> (17h) — Bayern favorito mas a Dea de Gasperini pode surpreender com seu futebol intenso.</p><p>Amanhã tem o clássico <strong>Real Madrid x Manchester City</strong>! Haaland vs Mbappé.</p>"
+    title: "Manchester United vence bem o Aston Villa com Casemiro decisivo",
+    cat: "futebol", catLabel: "Premier League",
+    date: "16 Mar 2026", readTime: "4 min de leitura",
+    img: "https://pbs.twimg.com/media/HDkT11zWsAAB83B.jpg",
+    text: "<p>Muito diferente do último jogo, onde acabou fazendo o seu primeiro jogo ruim do início ao fim sob o comando de Carrick, o <strong>Manchester United</strong> venceu muito bem o Aston Villa.</p><p>Casemiro se mostra mais pilar do que nunca para o bom funcionamento do time, algo que vem faz muito tempo.</p><p>Bruno Fernandes mostra novamente que está entre os melhores jogadores da posição e do mundo, ganhando o devido reconhecimento a cada temporada e jogos passados. Uma pena não renovar e poder continuar a bonita história que construiu.</p><p><strong>Matheus Cunha</strong> foi bem novamente, para além do gol importantíssimo marcado. O Manchester United encaminha o seu objetivo de voltar para as competições europeias.</p>"
   },
   {
-    title: "Real Madrid x Manchester City: Mbappé vs Haaland no duelo do ano",
-    cat: "futebol", catLabel: "Champions League",
-    date: "17 Mar 2026", readTime: "7 min de leitura",
-    text: "<p>O Santiago Bernabéu recebe amanhã o que muitos consideram o melhor jogo das oitavas de final da Champions League 2025/26.</p><p>De um lado, <strong>Kylian Mbappé</strong> vivendo sua melhor temporada com a camisa merengue. Do outro, <strong>Erling Haaland</strong>, a máquina de gols norueguesa que não para de quebrar recordes.</p><p>Guardiola volta ao Bernabéu pela primeira vez desde a eliminação dramática na temporada passada. Ancelotti tem o fator casa e um elenco que respira Champions League.</p><p>Escalações prováveis, análise tática e palpite no post completo.</p>"
+    title: "Liverpool decepciona novamente e Arne Slot mostra fragilidade",
+    cat: "futebol", catLabel: "Premier League",
+    date: "16 Mar 2026", readTime: "3 min de leitura",
+    img: "https://pbs.twimg.com/media/HDkUMhLXYAA9Aro.jpg",
+    text: "<p>Mais uma vez o trabalho de <strong>Arne Slot</strong> se mostra frágil, onde consegue fazer o Liverpool ser uma bagunça em diversos momentos.</p><p>Criou jogadas e situações para levar mais perigo, entretanto, desperdiçou sua grande maioria.</p><p>Apenas <strong>Dominik Szoboszlai</strong> e <strong>Rio Ngumoha</strong> se sobressaíram, sendo o meio-campista húngaro o MVP do time na temporada de forma isolada.</p><p>O Tottenham salva um ponto importante. A expectativa era de uma derrota e conseguiu um empate com Richarlison sendo decisivo.</p>"
   },
   {
-    title: "SGA iguala recorde de Wilt Chamberlain com 35 pts e game-winner sobre o Nuggets",
-    cat: "basquete", catLabel: "NBA",
-    date: "16 Mar 2026", readTime: "5 min de leitura",
-    text: "<p>Shai Gilgeous-Alexander fez história na noite de segunda-feira. Com 35 pontos, 15 assistências e 9 rebotes, igualou o recorde de Wilt Chamberlain de 126 jogos consecutivos com pelo menos 20 pontos.</p><p>Com o placar empatado a 10 segundos do fim, SGA criou espaço e converteu o step-back de três pontos para selar a vitória do <strong>Thunder por 129-126</strong> sobre o Nuggets.</p><p>SGA pode quebrar o recorde na quinta-feira em casa contra o Boston Celtics. O Thunder segue como principal favorito ao título do Oeste com a melhor campanha da NBA.</p>"
+    title: "O trabalho de Cesc Fàbregas no Como: verticalidade e associação",
+    cat: "futebol", catLabel: "Serie A",
+    date: "16 Mar 2026", readTime: "3 min de leitura",
+    img: "https://pbs.twimg.com/media/HDkUkn5XgAElyur.jpg",
+    text: "<p>Algo sempre importante e legal de se destacar do <strong>Como</strong>, onde elogiar o trabalho de Cesc Fàbregas é chover no molhado:</p><p>Um time extremamente vertical em inúmeros momentos e associativo, que com isso, consegue quebrar a maioria dos times do campeonato italiano.</p><p>Embora o gol da vitória venha de uma jogada de escanteio, se utilizou dos espaços para atacar verticalmente e incomodar. Isso é algo maneiro e que merece destaque.</p>"
   },
   {
-    title: "Celtics vs Cavaliers: a rivalidade que define o Leste em 2026",
-    cat: "basquete", catLabel: "NBA",
-    date: "15 Mar 2026", readTime: "6 min de leitura",
-    text: "<p>Boston e Cleveland protagonizam a rivalidade mais quente da conferência Leste nesta temporada. Os Celtics, atuais campeões, enfrentam um Cavaliers reformulado e faminto.</p><p>Donovan Mitchell está jogando o basquete da vida dele e Evan Mobley se consolidou como um dos melhores defensores da liga. Do lado de Boston, Tatum e Brown continuam mortais.</p><p>Analisamos os matchups, os números e quem leva vantagem nos playoffs.</p>"
+    title: "Bayern de Munique empata com Bayer Leverkusen em jogo com 2 expulsões",
+    cat: "futebol", catLabel: "Bundesliga",
+    date: "15 Mar 2026", readTime: "4 min de leitura",
+    img: "https://pbs.twimg.com/media/HDbt7QkWMAA5j2K.jpg",
+    text: "<p>Resultado ok para o <strong>Bayern de Munique</strong>, visto que teve dois jogadores expulsos no decorrer da partida. Foi bem em tentar fazer o seu jogo.</p><p><strong>Harry Kane</strong> se mostrou novamente uma aberração, ao entrar e mudar o jogo por determinado tempo — muito por ser além de um camisa 9.</p><p>Pelo lado do Bayer Leverkusen, fica uma sensação estranha. Fez 2 jogos que exigiam concentração máxima e conseguiram bons resultados, visto que são inferiores. A grande questão é ter tido vantagem numérica desde o minuto 42 e desperdiçar chances.</p><p>Méritos da <strong>Atalanta</strong> em conseguir sobreviver ao primeiro tempo, acreditar que seria possível sair com um resultado ok e tentar mais. Deu certo.</p>"
   },
   {
-    title: "A história completa de como o Barcelona quebrou financeiramente",
-    cat: "thread", catLabel: "Thread",
-    date: "14 Mar 2026", readTime: "20 partes",
-    text: "<p>O Barcelona viveu uma crise financeira sem precedentes nos últimos anos. A gestão de Bartomeu (2014-2020) foi marcada por gastos exorbitantes que comprometeram as finanças do clube por anos.</p><p>Tudo começou com a contratação de Neymar em 2013 — um negócio que custou muito mais do que os 57 milhões oficiais. Processos judiciais, bônus secretos e cláusulas ocultas.</p><p>Depois vieram os salários astronômicos: Messi ganhava mais de 100 milhões de euros por temporada. Griezmann, Dembélé e Coutinho foram contratações bilionárias que não deram retorno.</p><p>A pandemia de Covid em 2020 expôs os problemas estruturais. O Barça revelou uma dívida de mais de <strong>1,3 bilhão de euros</strong>.</p><p>Com Laporta, o clube apostou nas alavancas econômicas — vendendo direitos de TV e participações para se reerguer. A reconstrução ainda está em andamento mas os sinais são positivos com La Masia produzindo talentos como Lamine Yamal.</p>"
-  },
-  {
-    title: "Como a NFL transformou o Draft na maior vitrine esportiva dos EUA",
-    cat: "thread", catLabel: "Thread",
-    date: "12 Mar 2026", readTime: "15 partes",
-    text: "<p>O Draft da NFL deixou de ser um evento burocrático para se tornar um espetáculo de 3 dias que atrai milhões de espectadores.</p><p>Nos anos 80, o draft era feito num hotel em Nova York com pouca fanfarra. Hoje, é um evento itinerante que transforma cidades inteiras, com palcos gigantes, shows musicais e cobertura 24h.</p><p>A estratégia por trás: a NFL percebeu que o draft preenchia o vazio da offseason e mantinha os fãs engajados durante os meses sem jogos.</p><p>Analisamos a evolução do evento, os melhores e piores picks da história, e como o draft de 2026 promete ser o maior de todos.</p>"
-  },
-  {
-    title: "A evolução tática de Guardiola: do tiki-taka ao jogo posicional moderno",
-    cat: "thread", catLabel: "Thread",
-    date: "10 Mar 2026", readTime: "18 partes",
-    text: "<p>Pep Guardiola não inventou o tiki-taka — ele o transformou em algo muito maior. Do Barcelona ao Bayern e agora no City, sua filosofia evoluiu constantemente.</p><p>No Barça, era posse de bola com Messi de falso 9. No Bayern, foi transição rápida e largura. No City, o jogo posicional chegou ao ápice com laterais invertidos e zagueiros que sobem.</p><p>Nesta thread, mapeamos cada fase tática de Guardiola, as inspirações (Cruyff, Bielsa, Sacchi) e como ele continua reinventando o futebol em 2026.</p>"
-  },
-  {
-    title: "GP da Austrália: preview completo e quem pode surpreender",
+    title: "GP da China 2026: Mercedes domina e top 3 é todo da equipe",
     cat: "f1", catLabel: "F1",
-    date: "13 Mar 2026", readTime: "6 min de leitura",
-    text: "<p>A temporada 2026 da F1 começa em Melbourne com novos regulamentos técnicos que prometem revolucionar o grid. As primeiras impressões dos treinos livres mostram que a hierarquia pode ter mudado.</p><p><strong>Mercedes</strong> e <strong>Red Bull</strong> chegam como favoritas, mas Ferrari e McLaren deram sinais muito fortes nos testes de pré-temporada no Bahrein.</p><p>Os novos regulamentos de motor e aerodinâmica criam uma incógnita: quem adaptou melhor o carro às novas regras? O circuito de Albert Park foi reformado e promete tempos recordes.</p><p>Verstappen busca o tetracampeonato. Hamilton, agora na Ferrari, quer provar que ainda pode vencer. Norris e Piastri são as apostas para surpreender.</p>"
+    date: "15 Mar 2026", readTime: "3 min de leitura",
+    img: "https://pbs.twimg.com/media/HDcGOodXAAAfA4N.jpg",
+    text: "<p>O top 3 do <strong>GP da China de 2026</strong> é Mercedes FC. Começo de temporada avassalador.</p><p>Basicamente não há disputa com a Mercedes, embora a Ferrari tenha sido a equipe mais próxima de conseguir algo nesse sentido. É bem provável que tenhamos algo com as atualizações.</p><p>A disputa de <strong>Lewis Hamilton</strong> e <strong>Charles Leclerc</strong> pelo 3° lugar foi o que mais gerou entretenimento no GP.</p>"
   },
   {
-    title: "Free Agency 2026: os melhores contratos e as apostas arriscadas",
-    cat: "nfl", catLabel: "NFL",
-    date: "11 Mar 2026", readTime: "9 min de leitura",
-    text: "<p>A janela de agência livre da NFL 2026 movimentou centenas de milhões de dólares nas primeiras 48 horas. Separamos os melhores negócios e as apostas mais arriscadas da offseason.</p><p>A movimentação de quarterbacks foi o grande tema — vários times mudaram de titular, redesenhando o mapa de poder da liga para 2026. Alguns contratos são geniais, outros podem arruinar franquias por anos.</p><p>Destaque para os movimentos dos <strong>Bears</strong>, que montaram um elenco competitivo ao redor do QB jovem, e dos <strong>Cowboys</strong>, que fizeram apostas ousadas na defesa.</p>"
+    title: "Mercedes avassaladora: começo de temporada sem rivais na F1 2026",
+    cat: "f1", catLabel: "F1",
+    date: "15 Mar 2026", readTime: "3 min de leitura",
+    img: "https://pbs.twimg.com/media/HDcH2RSWAAAU9oO.jpg",
+    text: "<p>Basicamente não há disputa com a <strong>Mercedes</strong>, a realidade é essa. Embora a Ferrari tenha sido a equipe mais próxima de conseguir algo nesse sentido, é bem provável que tenhamos algo com as atualizações ao longo da temporada.</p><p>No mais, começo de temporada avassalador para a equipe alemã que dominou o GP da China de ponta a ponta.</p>"
   },
   {
-    title: "Trade Deadline: Oilers se reforçam e tentam o bicampeonato",
-    cat: "nhl", catLabel: "NHL",
-    date: "9 Mar 2026", readTime: "5 min de leitura",
-    text: "<p>O Edmonton Oilers foi o grande protagonista da trade deadline da NHL 2026. O campeão defensor trouxe dois defensores experientes e um forward de profundidade para endurecer o elenco.</p><p><strong>Connor McDavid</strong> segue sendo o melhor jogador do mundo e está em grande fase — lidera a liga em assistências e é segundo em pontos. O desafio agora é manter a coesão do grupo durante os playoffs.</p><p>Outros times que se movimentaram bem: Panthers (trouxeram um goleiro reserva de elite), Rangers (reforçaram a primeira linha) e Avalanche (apostaram tudo com trades agressivos).</p>"
+    title: "Gui Santos: símbolo de resistência do esporte brasileiro",
+    cat: "basquete", catLabel: "NBA",
+    date: "12 Mar 2026", readTime: "2 min de leitura",
+    img: "https://pbs.twimg.com/media/HDgMlOgXYAAMhjx.jpg",
+    text: "<p>O salto de <strong>Gui Santos</strong> veio no momento certo. Enquanto grandes instituições como São Paulo e Corinthians encerram atividades de base no esporte, Gui Santos surge como um símbolo de resistência.</p><p>Mostrando que o esporte brasileiro ainda tem presente e muito futuro. Um orgulho para o basquete nacional.</p>"
   },
   {
-    title: "Flamengo anuncia reforço europeu para o Brasileirão 2026",
-    cat: "futebol", catLabel: "Brasileirão",
-    date: "8 Mar 2026", readTime: "4 min de leitura",
-    text: "<p>O Flamengo anunciou a contratação de um meia-atacante revelado no futebol português para reforçar o elenco no Brasileirão 2026 e na Copa Libertadores.</p><p>O jogador se destacou na última temporada europeia com 12 gols e 8 assistências em 34 jogos, sendo eleito revelação do campeonato português.</p><p>Com valores consideráveis envolvidos na negociação, o Flamengo demonstra disposição de voltar ao topo do futebol nacional após uma temporada 2025 abaixo das expectativas.</p>"
+    title: "Volta Redonda classificado na Copa do Brasil nos pênaltis",
+    cat: "futebol", catLabel: "Copa do Brasil",
+    date: "12 Mar 2026", readTime: "2 min de leitura",
+    img: "https://pbs.twimg.com/amplify_video_thumb/2032223439054893057/img/fX3A1zyzCls6qt-8.jpg",
+    text: "<p>Classificados na Copa do Brasil! <strong>Volta Redonda 0 (5)x(3) 0 América-RN</strong>.</p><p>Alguns dizem que pênaltis é loteria. Preferimos acreditar que é estudo e muito trabalho. O estudo atrelado ao treinamento no dia a dia só tem a nos aproximar das conquistas.</p>"
   },
   {
-    title: "Palmeiras x São Paulo: clássico define liderança do Paulistão",
-    cat: "futebol", catLabel: "Paulistão",
-    date: "7 Mar 2026", readTime: "4 min de leitura",
-    text: "<p>O Choque-Rei de domingo pode definir quem lidera a fase de grupos do Campeonato Paulista 2026. Palmeiras e São Paulo chegam invictos e com os melhores ataques da competição.</p><p>Abel Ferreira aposta no contra-ataque letal com Estêvão e Endrick (emprestado pelo Real Madrid). Zubeldía mantém o São Paulo organizado e difícil de bater.</p><p>Escalações prováveis, desfalques e palpite.</p>"
+    title: "Simplesmente não dá pra acreditar nesse lance",
+    cat: "futebol", catLabel: "Futebol",
+    date: "17 Mar 2026", readTime: "1 min de leitura",
+    img: "https://pbs.twimg.com/ext_tw_video_thumb/2026005743900454912/pu/img/HNnrXe7sHbZU7jEd.jpg",
+    text: "<p>Simplesmente não dá pra acreditar em um negócio desses. Um lance que desafia a lógica do futebol e mostra que esse esporte é imprevisível como nenhum outro.</p>"
   }
 ];
 
 // ══════════════════════════════════════════
-// ── SIDEBAR DINÂMICA: Threads + Ranking ──
+// ── SIDEBAR: Threads + Ranking ──
 // ══════════════════════════════════════════
 
 function renderThreadsSidebar() {
-  var threadsList = document.getElementById('threads-list');
-  if (!threadsList) return;
-
+  var el = document.getElementById('threads-list');
+  if (!el) return;
   var threads = posts.filter(function(p) { return p.cat === 'thread'; });
-
   if (threads.length === 0) {
-    threadsList.innerHTML = '<p style="font-size:12px;color:#9a9a94;">Nenhuma thread publicada ainda.</p>';
+    // Sem threads ainda, mostra os posts de futebol como destaques
+    var destaques = posts.filter(function(p) { return p.cat === 'futebol'; }).slice(0, 3);
+    el.innerHTML = destaques.map(function(t, i) {
+      return '<div class="thread-card" data-tidx="' + i + '">' +
+        '<span class="thread-num">' + String(i+1).padStart(2,'0') + '</span>' +
+        '<div class="thread-label">' + t.catLabel + ' \u00b7 ' + t.readTime + '</div>' +
+        '<div class="thread-title">' + t.title + '</div>' +
+      '</div>';
+    }).join('');
+    el.querySelectorAll('.thread-card').forEach(function(c) {
+      c.addEventListener('click', function() {
+        var futebolPosts = posts.filter(function(p) { return p.cat === 'futebol'; });
+        openPostFromData(futebolPosts[parseInt(c.dataset.tidx)]);
+      });
+    });
     return;
   }
-
-  threadsList.innerHTML = threads.map(function(t, i) {
-    var num = String(i + 1).padStart(2, '0');
-    return '<div class="thread-card" data-thread-idx="' + i + '">' +
-      '<span class="thread-num">' + num + '</span>' +
+  el.innerHTML = threads.map(function(t, i) {
+    return '<div class="thread-card" data-tidx="' + i + '">' +
+      '<span class="thread-num">' + String(i+1).padStart(2,'0') + '</span>' +
       '<div class="thread-label">Thread \u00b7 ' + t.readTime + '</div>' +
       '<div class="thread-title">' + t.title + '</div>' +
     '</div>';
   }).join('');
-
-  threadsList.querySelectorAll('.thread-card').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var idx = parseInt(card.dataset.threadIdx);
-      var threadPosts = posts.filter(function(p) { return p.cat === 'thread'; });
-      if (threadPosts[idx]) openPostFromData(threadPosts[idx]);
+  el.querySelectorAll('.thread-card').forEach(function(c) {
+    c.addEventListener('click', function() {
+      var th = posts.filter(function(p) { return p.cat === 'thread'; });
+      openPostFromData(th[parseInt(c.dataset.tidx)]);
     });
   });
 }
 
 function renderRankingSidebar() {
-  var rankingList = document.getElementById('ranking-list');
-  if (!rankingList) return;
-
-  var top = posts.slice(0, 5);
-
-  rankingList.innerHTML = top.map(function(p, i) {
-    return '<div class="ranking-item" data-rank-idx="' + i + '">' +
-      '<span class="rank-num">' + (i + 1) + '</span>' +
-      '<div>' +
-        '<div class="rank-title">' + truncateText(p.title, 50) + '</div>' +
-        '<div class="rank-cat">' + (p.catLabel || p.cat) + '</div>' +
-      '</div>' +
-    '</div>';
-  }).join('');
-
-  rankingList.querySelectorAll('.ranking-item').forEach(function(item) {
-    item.addEventListener('click', function() {
-      var idx = parseInt(item.dataset.rankIdx);
-      if (posts[idx]) openPostFromData(posts[idx]);
-    });
+  var el = document.getElementById('ranking-list');
+  if (!el) return;
+  posts.slice(0, 5).forEach(function(p, i) {
+    var div = document.createElement('div');
+    div.className = 'ranking-item';
+    div.innerHTML = '<span class="rank-num">' + (i+1) + '</span><div><div class="rank-title">' +
+      (p.title.length > 50 ? p.title.substring(0,50)+'...' : p.title) +
+      '</div><div class="rank-cat">' + (p.catLabel||p.cat) + '</div></div>';
+    div.style.cursor = 'pointer';
+    div.addEventListener('click', function() { openPostFromData(p); });
+    el.appendChild(div);
   });
 }
 
-function truncateText(str, len) {
-  return str.length > len ? str.substring(0, len) + '...' : str;
-}
-
 // ══════════════════════════════
-// ── Modal logic ──
+// ── Modal ──
 // ══════════════════════════════
 
 var modal = document.getElementById('post-modal');
@@ -163,8 +149,13 @@ function openPostFromData(post) {
   modalCat.className = 'post-cat ' + (post.cat || '');
   modalTitle.textContent = post.title;
   modalMeta.innerHTML = '<span>Análise Ball</span><span class="dot">\u00b7</span><span>' + post.date + '</span><span class="dot">\u00b7</span><span>' + post.readTime + '</span>';
-  modalImg.innerHTML = '';
-  modalImg.classList.add('no-img');
+  if (post.img) {
+    modalImg.innerHTML = '<img src="' + post.img + '" alt="' + post.title + '"/>';
+    modalImg.classList.remove('no-img');
+  } else {
+    modalImg.innerHTML = '';
+    modalImg.classList.add('no-img');
+  }
   modalText.innerHTML = post.text || '<p>Conteúdo completo em breve.</p>';
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -176,148 +167,84 @@ function closePost() {
 }
 
 document.querySelectorAll('.post-card, .post-featured').forEach(function(card) {
-  card.style.cursor = 'pointer';
   card.addEventListener('click', function(e) {
     if (e.target.closest('a, button')) return;
     openPost(card);
   });
 });
-
 modalOverlay.addEventListener('click', closePost);
 modalClose.addEventListener('click', closePost);
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePost(); });
 
 // ── Hamburger ──
-var hamburger = document.getElementById('hamburger');
-var navEl = document.getElementById('main-nav');
-hamburger.addEventListener('click', function() { navEl.classList.toggle('open'); });
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('main-nav').classList.toggle('open');
+});
 
 // ── Category filter ──
-var navLinks = document.querySelectorAll('.nav-link');
-var allCards = document.querySelectorAll('.post-card, .post-featured');
-
-navLinks.forEach(function(link) {
+document.querySelectorAll('.nav-link').forEach(function(link) {
   link.addEventListener('click', function(e) {
     e.preventDefault();
-    e.stopPropagation();
-    navLinks.forEach(function(l) { l.classList.remove('active'); });
+    document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
     link.classList.add('active');
     var cat = link.dataset.cat;
-    allCards.forEach(function(card) {
+    document.querySelectorAll('.post-card, .post-featured').forEach(function(card) {
       card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
     });
-    navEl.classList.remove('open');
-    var postsSection = document.querySelector('.posts-section');
-    if (postsSection) postsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('main-nav').classList.remove('open');
   });
 });
 
 // ── Load more ──
 var loadBtn = document.getElementById('load-more');
-if (loadBtn) {
-  loadBtn.addEventListener('click', function() {
-    loadBtn.textContent = 'Carregando...';
-    loadBtn.disabled = true;
-    setTimeout(function() {
-      loadBtn.textContent = 'Não há mais posts';
-      loadBtn.style.opacity = '0.4';
-      loadBtn.style.cursor = 'default';
-    }, 1000);
-  });
-}
+if (loadBtn) loadBtn.addEventListener('click', function() {
+  loadBtn.textContent = 'Carregando...';
+  loadBtn.disabled = true;
+  setTimeout(function() { loadBtn.textContent = 'Não há mais posts'; loadBtn.style.opacity = '0.4'; }, 1000);
+});
 
-// ══════════════════════════════════════════════════════════════
-// ── INTEGRAÇÃO: RSS FEED DO X (via rss.app)                ──
-// ══════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════
+// ── RSS FEED DO X ──
+// ══════════════════════════════════════════
 
 var RSS_FEED_URL = 'https://rss.app/feeds/v1.1/9QoEF0bvtjASd99D.json';
 var AVATAR_URL = 'https://pbs.twimg.com/profile_images/1895267817038684160/jxB7R0mn_400x400.jpg';
 var X_PROFILE = 'https://x.com/analiseball';
-var MAX_TWEETS = 4;
 var X_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="rss-tweet-x-logo"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
 
-function timeAgo(dateStr) {
-  var now = new Date();
-  var date = new Date(dateStr);
-  var diffMs = now - date;
-  var diffMin = Math.floor(diffMs / 60000);
-  var diffH = Math.floor(diffMin / 60);
-  var diffD = Math.floor(diffH / 24);
-  if (diffMin < 1) return 'agora';
-  if (diffMin < 60) return diffMin + 'min';
-  if (diffH < 24) return diffH + 'h';
-  if (diffD < 7) return diffD + 'd';
-  return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' });
-}
-
-function createTweetCard(tweet) {
-  var card = document.createElement('a');
-  card.className = 'rss-tweet-card';
-  card.href = tweet.link || X_PROFILE;
-  card.target = '_blank';
-  card.rel = 'noopener noreferrer';
-
-  var mediaHTML = '';
-  if (tweet.image) {
-    mediaHTML = '<div class="rss-tweet-media"><img src="' + tweet.image + '" alt="" loading="lazy" /></div>';
-  }
-
-  card.innerHTML =
-    '<div class="rss-tweet-header">' +
-      '<img class="rss-tweet-avatar" src="' + AVATAR_URL + '" alt="" />' +
-      '<div class="rss-tweet-author">' +
-        '<span class="rss-tweet-name">Análise Ball</span>' +
-        '<span class="rss-tweet-handle">@AnaliseBall</span>' +
-      '</div>' +
-      X_SVG +
-    '</div>' +
-    '<div class="rss-tweet-text">' + (tweet.text || '') + '</div>' +
-    mediaHTML +
-    '<div class="rss-tweet-footer">' +
-      '<span class="rss-tweet-date">' + timeAgo(tweet.date) + '</span>' +
-    '</div>';
-  return card;
+function timeAgo(d) {
+  var ms = new Date() - new Date(d), m = Math.floor(ms/60000), h = Math.floor(m/60), dd = Math.floor(h/24);
+  if (m < 1) return 'agora'; if (m < 60) return m+'min'; if (h < 24) return h+'h'; if (dd < 7) return dd+'d';
+  return new Date(d).toLocaleDateString('pt-BR',{day:'numeric',month:'short'});
 }
 
 function renderTweets(tweets) {
-  var grid = document.getElementById('rss-tweets-grid');
-  var loading = document.getElementById('rss-loading');
-  if (loading) loading.remove();
-  if (!tweets || tweets.length === 0) {
-    grid.innerHTML = '<div class="rss-empty"><p>Siga <a href="' + X_PROFILE + '" target="_blank">@AnaliseBall no X</a> para ver o conteúdo em tempo real.</p></div>';
-    return;
-  }
-  tweets.slice(0, MAX_TWEETS).forEach(function(tweet) {
-    grid.appendChild(createTweetCard(tweet));
+  var g = document.getElementById('rss-tweets-grid');
+  var l = document.getElementById('rss-loading');
+  if (l) l.remove();
+  if (!tweets||!tweets.length) { g.innerHTML='<div class="rss-empty"><p>Siga <a href="'+X_PROFILE+'" target="_blank">@AnaliseBall</a> no X</p></div>'; return; }
+  tweets.slice(0,4).forEach(function(t) {
+    var c = document.createElement('a');
+    c.className = 'rss-tweet-card'; c.href = t.link||X_PROFILE; c.target = '_blank'; c.rel = 'noopener';
+    var media = t.image ? '<div class="rss-tweet-media"><img src="'+t.image+'" alt="" loading="lazy"/></div>' : '';
+    c.innerHTML = '<div class="rss-tweet-header"><img class="rss-tweet-avatar" src="'+AVATAR_URL+'" alt=""/><div class="rss-tweet-author"><span class="rss-tweet-name">Análise Ball</span><span class="rss-tweet-handle">@AnaliseBall</span></div>'+X_SVG+'</div><div class="rss-tweet-text">'+t.text+'</div>'+media+'<div class="rss-tweet-footer"><span class="rss-tweet-date">'+timeAgo(t.date)+'</span></div>';
+    g.appendChild(c);
   });
-}
-
-function getExampleTweets() {
-  return [
-    { text: "\ud83c\udfc6 Oitavas da Champions HOJE! Liverpool, Barcelona, City e Bayern em campo. Quem avança?", date: new Date(Date.now() - 2*3600000).toISOString(), link: X_PROFILE, image: null },
-    { text: "\ud83c\udfc0 SGA é INEVITÁVEL. 35 pts, game-winner no buzzer. Igualou Wilt Chamberlain — 126 jogos seguidos com 20+ pontos.", date: new Date(Date.now() - 5*3600000).toISOString(), link: X_PROFILE, image: null },
-    { text: "\ud83e\uddf5 THREAD: Como o Barcelona quebrou financeiramente. De Neymar a Bartomeu, dos salários absurdos às alavancas. 1/20", date: new Date(Date.now() - 24*3600000).toISOString(), link: X_PROFILE, image: null },
-    { text: "\ud83c\udfce\ufe0f F1 2026 começa neste final de semana! Novos regulamentos, nova era. Mercedes e Red Bull favoritas.", date: new Date(Date.now() - 48*3600000).toISOString(), link: X_PROFILE, image: null }
-  ];
 }
 
 function fetchRSSFeed() {
   fetch(RSS_FEED_URL)
-    .then(function(res) { if (!res.ok) throw new Error('Feed falhou'); return res.json(); })
-    .then(function(data) {
-      var items = data.items || data.entries || [];
-      if (items.length === 0) { renderTweets(getExampleTweets()); return; }
-      var tweets = items.map(function(item) {
-        var image = null;
-        if (item.image) image = item.image;
-        else if (item.attachments && item.attachments.length > 0 && item.attachments[0].mime_type && item.attachments[0].mime_type.indexOf('image') !== -1) image = item.attachments[0].url;
-        var raw = item.content_text || item.title || item.summary || '';
-        var div = document.createElement('div'); div.innerHTML = raw;
-        return { text: (div.textContent || '').trim(), date: item.date_published || item.date_modified || new Date().toISOString(), link: item.url || item.external_url || X_PROFILE, image: image };
-      });
-      renderTweets(tweets);
+    .then(function(r) { if(!r.ok) throw 0; return r.json(); })
+    .then(function(d) {
+      var items = d.items||[];
+      if(!items.length) { renderTweets([]); return; }
+      renderTweets(items.map(function(i) {
+        var img = i.image || (i.attachments&&i.attachments[0]?i.attachments[0].url:null);
+        var div = document.createElement('div'); div.innerHTML = i.content_text||i.title||'';
+        return { text:(div.textContent||'').trim().split('—')[0].trim(), date:i.date_published||'', link:i.url||X_PROFILE, image:img };
+      }));
     })
-    .catch(function() { renderTweets(getExampleTweets()); });
+    .catch(function() { renderTweets([]); });
 }
 
 // ── INIT ──
